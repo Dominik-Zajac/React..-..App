@@ -2,7 +2,7 @@ import React from 'react';
 
 const Order = () => {
     return (
-        <div>
+        <div className='order col-md-4'>
             Zamowienie
         </div>
     )

@@ -9,11 +9,13 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className="App">
+      <div className="app container">
         <Header />
-        <Order />
-        <Inventory />
-        <AdminPanel />
+        <div className='row'>
+          <Order />
+          <Inventory />
+          <AdminPanel />
+        </div>
       </div>
     );
   }
