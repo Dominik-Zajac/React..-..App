@@ -1,13 +1,23 @@
 import React from 'react';
+import AdminPanel from './AdminPanel';
+import Header from './Header';
+import Inventory from './Inventory';
+import Order from './Order';
 
-function App() {
-  return (
-    <div className="App">
-      <i>
-        Hello World
-      </i>
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+
+    return (
+      <div className="App">
+        <Header />
+        <Order />
+        <Inventory />
+        <AdminPanel />
+      </div>
+    );
+  }
 }
+
 
 export default App;
