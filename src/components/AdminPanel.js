@@ -10,7 +10,6 @@ class AdminPanel extends Component {
             description: '',
             onStock: true,
             image: '',
-            books: []
         }
     }
 
@@ -37,13 +36,8 @@ class AdminPanel extends Component {
             onStock,
             image
         };
-        let books = [...this.state.books];
 
-        books.push(newBook);
-
-        this.setState({
-            books
-        })
+        this.props.addBook(newBook)
 
         this.resetForm();
     }

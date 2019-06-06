@@ -5,6 +5,23 @@ import Inventory from './Inventory';
 import Order from './Order';
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      books: [],
+    }
+  }
+
+  //AdminPanel
+  addNewBook = book => {
+    let books = [...this.state.books];
+    books.push(book);
+
+    this.setState({
+      books
+    })
+  }
 
   render() {
 
@@ -14,7 +31,9 @@ class App extends React.Component {
         <div className='row'>
           <Order />
           <Inventory />
-          <AdminPanel />
+          <AdminPanel
+            books={this.state.books}
+            addBook={this.addNewBook} />
         </div>
       </div>
     );
