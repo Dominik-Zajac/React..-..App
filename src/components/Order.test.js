@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Order from './Order';
-import { shallow } from 'enzyme';
+import {
+    shallow
+} from 'enzyme';
 import '../setupTests';
 
 describe('Order tests', () => {
@@ -12,8 +14,8 @@ describe('Order tests', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Order renders', () => {
+    it('Snapshot matches', () => {
         const wrapper = shallow(< Order />);
-        expect(wrapper.find('div').text()).toBe('Zamowienie');
+        expect(wrapper).toMatchSnapshot();
     })
 })

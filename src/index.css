@@ -23,6 +23,8 @@ body {
   background-color: green;
 }
 
+/* AdminPanel */
 .adminPanel {
-  background-color: red;
+  padding: 10px;
+  background-color: black;
 }

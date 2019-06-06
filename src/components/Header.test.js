@@ -12,6 +12,11 @@ describe('Header tests', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
+    it('Snapshot matches', () => {
+        const wrapper = shallow(< Header />);
+        expect(wrapper).toMatchSnapshot();
+    })
+
     it('Header changes text according to state', () => {
         const wrapper = shallow(<Header />);
         expect(wrapper.find('h1').text()).toBe('Black Books');

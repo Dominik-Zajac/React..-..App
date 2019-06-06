@@ -13,6 +13,11 @@ describe('App test', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
+    it('Snapshot matches', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper).toMatchSnapshot();
+    })
+
     it('Child components render', () => {
         const wrapper = shallow(<App />);
         expect(wrapper.find('Header').exists()).toBe(true);

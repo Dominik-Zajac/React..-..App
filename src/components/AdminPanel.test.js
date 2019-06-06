@@ -12,8 +12,8 @@ describe('AdminPanel tests', () => {
         ReactDOM.unmountComponentAtNode(div)
     })
 
-    it('AdminPanel renders', () => {
+    it('Snapshot matches', () => {
         const wrapper = shallow(<AdminPanel />);
-        expect(wrapper.find('div').text()).toBe('Panel Administratora');
+        expect(wrapper).toMatchSnapshot();
     })
 })
