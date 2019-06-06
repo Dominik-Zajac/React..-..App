@@ -10,9 +10,11 @@ class AdminPanel extends Component {
             description: '',
             onStock: true,
             image: '',
+            books: []
         }
     }
 
+    //Pobieranie wartości z inputów
     handleChange = e => {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -23,10 +25,44 @@ class AdminPanel extends Component {
         })
     }
 
+    //Dodawanie nowej książki do tablicy
+    addNewBook = e => {
+        e.preventDefault();
+
+        const { name, author, description, onStock, image } = this.state;
+        let newBook = {
+            name,
+            author,
+            description,
+            onStock,
+            image
+        };
+        let books = [...this.state.books];
+
+        books.push(newBook);
+
+        this.setState({
+            books
+        })
+
+        this.resetForm();
+    }
+
+    //Resetowanie formularza po zatwierdzeniu danych
+    resetForm() {
+        this.setState({
+            name: '',
+            author: '',
+            description: '',
+            onStock: false,
+            image: ''
+        })
+    }
+
     render() {
         return (
             <div className='adminPanel col-xs-4'>
-                <form>
+                <form onSubmit={this.addNewBook}>
                     <div className='form-group'>
                         <input
                             id='name'
