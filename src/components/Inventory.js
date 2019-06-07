@@ -1,19 +1,38 @@
 import React from 'react';
 import BookView from './BookView';
+import { fbase } from '../firebase';
 
 class Inventory extends React.Component {
-    render() {
+    constructor() {
+        super();
+        this.state = {
+            books: []
+        }
+    }
 
-        // const name = this.props.books.map((book, index) => (
-        //     <BookView
-        //         key={index}
-        //         book={book}
-        //         addToOrder={this.props.addToOrder}
-        //     />
-        // ))
+    componentDidMount() {
+        this.ref = fbase.syncState('bookstore/books', {
+            context: this,
+            state: 'books'
+        })
+    }
+
+    componentWillUnmount() {
+        fbase.removeBinding(this.ref);
+    }
+
+
+    render() {
+        const books = this.state.books.map((book, index) => (
+            <BookView
+                key={index}
+                book={book}
+                addToOrder={this.props.addToOrder}
+            />
+        ))
         return (
-            <div className='inventory col-md-4'>
-                {/* {name} */}
+            <div className='inventory col-md-6'>
+                {books}
             </div>
         )
     }
