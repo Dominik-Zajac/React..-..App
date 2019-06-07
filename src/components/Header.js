@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
     constructor() {
@@ -40,6 +41,7 @@ class Header extends React.Component {
         return (
             <div className='row header' onClick={this.handleClick} style={headerStyles}>
                 <center><h1>{this.state.bookName}</h1></center>
+                <Link to='/admin'>Go to panel admin</Link>
             </div>
         )
 

@@ -35,7 +35,7 @@ class AdminPanel extends Component {
             onStock,
         };
 
-        this.props.addBook(newBook)
+        // this.props.addBook(newBook)
 
         this.resetForm();
     }
