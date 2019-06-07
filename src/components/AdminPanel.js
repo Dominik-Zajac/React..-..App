@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import { fbase } from '../firebase';
 
 class AdminPanel extends Component {
     constructor() {
         super();
 
         this.state = {
-            name: '',
-            author: '',
-            description: '',
-            onStock: true,
+            books: [],
+            book: {
+                name: '',
+                author: '',
+                description: '',
+                onStock: true,
+            }
         }
     }
 
@@ -18,8 +22,10 @@ class AdminPanel extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
+        let newBook = { ...this.state.book, [name]: value }
+
         this.setState({
-            [name]: value
+            book: newBook
         })
     }
 
@@ -27,15 +33,15 @@ class AdminPanel extends Component {
     addNewBook = e => {
         e.preventDefault();
 
-        const { name, author, description, onStock } = this.state;
-        let newBook = {
-            name,
-            author,
-            description,
-            onStock,
-        };
+        let newBook = { ...this.state.book };
 
-        // this.props.addBook(newBook)
+        if (Array.isArray(this.state.books)) {
+            this.setState({
+                books: [...this.state.books, newBook]
+            })
+        } else {
+            this.setState({ books: [newBook] })
+        }
 
         this.resetForm();
     }
@@ -43,11 +49,25 @@ class AdminPanel extends Component {
     //Resetowanie formularza po zatwierdzeniu danych
     resetForm() {
         this.setState({
-            name: '',
-            author: '',
-            description: '',
-            onStock: false
+            book: {
+
+                name: '',
+                author: '',
+                description: '',
+                onStock: false
+            }
         })
+    }
+
+    componentDidMount() {
+        this.ref = fbase.syncState('bookstore/books', {
+            context: this,
+            state: 'books'
+        })
+    }
+
+    componentWillUnmount() {
+        fbase.removeBinding(this.ref);
     }
 
     render() {
@@ -59,7 +79,7 @@ class AdminPanel extends Component {
                             id='name'
                             name='name'
                             type='text'
-                            value={this.state.name}
+                            value={this.state.book.name}
                             onChange={this.handleChange}
                             placeholder='Book name'
                             className='form-control'
@@ -70,7 +90,7 @@ class AdminPanel extends Component {
                             id='author'
                             name='author'
                             type='text'
-                            value={this.state.author}
+                            value={this.state.book.author}
                             onChange={this.handleChange}
                             placeholder='Book author'
                             className='form-control'
@@ -80,7 +100,7 @@ class AdminPanel extends Component {
                         <textarea
                             id='description'
                             name='description'
-                            value={this.state.description}
+                            value={this.state.book.description}
                             onChange={this.handleChange}
                             placeholder='Book description'
                             className='form-control'
@@ -91,7 +111,7 @@ class AdminPanel extends Component {
                             id='onStock'
                             name='onStock'
                             type='checkbox'
-                            checked={this.state.onStock}
+                            checked={this.state.book.onStock}
                             onChange={this.handleChange}
                             className='form-check-input'
                         />
