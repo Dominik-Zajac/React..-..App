@@ -41,7 +41,7 @@ class Header extends React.Component {
         return (
             <div className='row header' onClick={this.handleClick} style={headerStyles}>
                 <center><h1>{this.state.bookName}</h1></center>
-                <Link to='/admin'>Go to panel admin</Link>
+                <Link to='/admin'><button className='btn btn-info admin'>Panel admin</button></Link>
             </div>
         )
 

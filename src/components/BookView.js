@@ -2,13 +2,18 @@ import React from 'react';
 
 const BookView = props => {
     return (
-        <div>
-            <ul>
-                <li>{props.book.name}</li>
-                <li>{props.book.author}</li>
-                <button className='btn btn-primary' onClick={() => props.addToOrder(props.book)}>Add to order</button>
-            </ul>
-            <hr />
+        <div className='book-view row'>
+            <div className='col-xs-3'>
+                <h5>Name:</h5>
+                <p>{props.book.name}</p>
+            </div>
+            <div className='col-xs-3'>
+                <h5>Author:</h5>
+                <p>{props.book.author}</p>
+            </div>
+            <div className='col-xs-3'>
+                <button onClick={() => props.addToOrder(props.book)} className='btn btn-primary'>Add to order</button>
+            </div>
         </div>
     )
 }

@@ -7,24 +7,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app {
-  background-color: blue;
-}
-
-.header {
-  background-color: brown
-}
-
-.order {
-  background-color: darkgoldenrod;
-}
-
-.inventory {
-  background-color: green;
-}
-
 /* AdminPanel */
 .adminPanel {
   padding: 10px;
   background-color: black;
+}
+
+/* BookView */
+.book-view {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 2px solid black;
+}
+
+/* OrderView */
+.order-view {
+  margin: 10px 5px;
+  padding: 10px 0;
+  border: 2px solid black;
+}
+
+/* Header */
+.header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.admin {
+  border: 1px solid red;
 }
