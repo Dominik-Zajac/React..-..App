@@ -1,16 +1,16 @@
 import React from 'react';
 
-const BookView = props => {
+const OrderView = props => {
     return (
         <div>
             <ul>
                 <li>{props.book.name}</li>
                 <li>{props.book.author}</li>
-                <button className='btn btn-primary' onClick={() => props.addToOrder(props.book)}>Add to order</button>
+                <button className='btn btn-danger' onClick={() => props.removeFromOrder(props.book.name)}>Remove</button>
             </ul>
             <hr />
         </div>
     )
 }
 
-export default BookView;
+export default OrderView;

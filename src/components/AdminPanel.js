@@ -52,7 +52,7 @@ class AdminPanel extends Component {
 
     render() {
         return (
-            <div className='adminPanel col-xs-4'>
+            <div className='adminPanel col-md-4'>
                 <form onSubmit={this.addNewBook}>
                     <div className='form-group'>
                         <input
