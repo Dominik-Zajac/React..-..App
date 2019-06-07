@@ -9,7 +9,6 @@ class AdminPanel extends Component {
             author: '',
             description: '',
             onStock: true,
-            image: '',
         }
     }
 
@@ -28,13 +27,12 @@ class AdminPanel extends Component {
     addNewBook = e => {
         e.preventDefault();
 
-        const { name, author, description, onStock, image } = this.state;
+        const { name, author, description, onStock } = this.state;
         let newBook = {
             name,
             author,
             description,
             onStock,
-            image
         };
 
         this.props.addBook(newBook)
@@ -48,8 +46,7 @@ class AdminPanel extends Component {
             name: '',
             author: '',
             description: '',
-            onStock: false,
-            image: ''
+            onStock: false
         })
     }
 
@@ -104,17 +101,7 @@ class AdminPanel extends Component {
                             On stock
                         </label>
                     </div>
-                    <div className='form-group'>
-                        <input
-                            id='image'
-                            name='image'
-                            type='text'
-                            value={this.state.image}
-                            onChange={this.handleChange}
-                            placeholder='Book image'
-                            className='form-control'
-                        />
-                    </div>
+
                     <button type='submit' className='btn btn-primary'>Add</button>
                 </form>
             </div>
