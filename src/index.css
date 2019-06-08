@@ -42,3 +42,26 @@ body {
 .admin {
   border: 1px solid red;
 }
+
+/* LoginPanel */
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-panel form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-panel input {
+  max-width: 20vw;
+  margin: 1vh 0;
+}
+
+.login-panel button {
+  margin-top: 10%;
+}

@@ -101,30 +101,34 @@ class AdminPanel extends Component {
         return (
             <div>
                 {!this.state.loggedIn &&
-                    <form onSubmit={this.authenticate}>
-                        <input
-                            id='email'
-                            type='text'
-                            name='email'
-                            placeholder='email'
-                            value={this.state.email}
-                            className='form-control'
-                            onChange={this.handleLoginChange}
-                        />
-                        <input
-                            id='password'
-                            type='password'
-                            name='password'
-                            value={this.state.password}
-                            className='form-control'
-                            onChange={this.handleLoginChange}
-                        />
-                        <button
-                            type='submit'
-                            className='btn btn-primary'>
-                            Log in
+                    <div className='login-panel'>
+                        <h2>Admin Panel</h2>
+                        <form onSubmit={this.authenticate}>
+                            <input
+                                id='email'
+                                type='text'
+                                name='email'
+                                placeholder='email'
+                                value={this.state.email}
+                                className='form-control'
+                                onChange={this.handleLoginChange}
+                            />
+                            <input
+                                id='password'
+                                type='password'
+                                name='password'
+                                placeholder='password'
+                                value={this.state.password}
+                                className='form-control'
+                                onChange={this.handleLoginChange}
+                            />
+                            <button
+                                type='submit'
+                                className='btn btn-primary'>
+                                Log in
                         </button>
-                    </form>
+                        </form>
+                    </div>
                 }
                     {this.state.loggedI &&
                             <div className='adminPanel col-md-4'>
