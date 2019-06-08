@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fbase, firebaseApp } from '../firebase';
 import LoginPanel from './LoginPanel';
+import AddBookForm from './AddBookForm';
 
 class AdminPanel extends Component {
     constructor() {
@@ -88,10 +89,6 @@ class AdminPanel extends Component {
             .catch(() => {
                 alert('Blędy login/hasło!')
             })
-
-        this.setState({
-            loggedIn: true
-        })
     }
 
     componentWillUnmount() {
@@ -110,60 +107,12 @@ class AdminPanel extends Component {
                     />
                 }
                 {this.state.loggedIn &&
-                             <div className='adminPanel col-md-4'>
-                            <form onSubmit={this.addNewBook}>
-                                <div className='form-group'>
-                                    <input
-                                        id='name'
-                                        name='name'
-                                        type='text'
-                                        value={this.state.book.name}
-                                        onChange={this.handleChange}
-                                        placeholder='Book name'
-                                        className='form-control'
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <input
-                                        id='author'
-                                        name='author'
-                                        type='text'
-                                        value={this.state.book.author}
-                                        onChange={this.handleChange}
-                                        placeholder='Book author'
-                                        className='form-control'
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <textarea
-                                        id='description'
-                                        name='description'
-                                        value={this.state.book.description}
-                                        onChange={this.handleChange}
-                                        placeholder='Book description'
-                                        className='form-control'
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <input
-                                        id='onStock'
-                                        name='onStock'
-                                        type='checkbox'
-                                        checked={this.state.book.onStock}
-                                        onChange={this.handleChange}
-                                        className='form-check-input'
-                                    />
-                                    <label
-                                        htmlFor='onStock'
-                                        className='form-check-label'>
-                                        On stock
-                        </label>
-                                </div>
-
-                                <button type='submit' className='btn btn-primary'>Add</button>
-                            </form>
-                        </div>
-                    }
+                    <AddBookForm
+                        book={this.state.book}
+                        addNewBook={this.addNewBook}
+                        handleChange={this.handleChange}
+                    />
+                }
             </div>
         )
     }
