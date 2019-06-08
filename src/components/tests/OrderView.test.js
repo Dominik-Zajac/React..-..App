@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderView from './OrderView';
+import OrderView from '../OrderView';
 import { shallow } from 'enzyme';
 
 describe('Order view tests', () => {

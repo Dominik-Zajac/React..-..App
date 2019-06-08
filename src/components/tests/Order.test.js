@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Order from './Order';
-import {
-    shallow
-} from 'enzyme';
-import '../setupTests';
+import Order from '../Order';
+import { shallow } from 'enzyme';
+import '../../setupTests';
 
 describe('Order tests', () => {
 

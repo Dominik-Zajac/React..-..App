@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Inventory from './Inventory';
+import Inventory from '../Inventory';
 import { shallow } from 'enzyme';
-import '../setupTests';
+import '../../setupTests';
 
 describe('Inventory tests', () => {
 
