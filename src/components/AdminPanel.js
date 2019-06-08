@@ -85,6 +85,21 @@ class AdminPanel extends Component {
             })
     }
 
+    //Wylogowanie z panelu admina
+    handleLogout = e => {
+        e.preventDefault();
+
+        firebaseApp.auth().signOut()
+            .then(() => {
+                this.setState({
+                    loggedIn: false
+                })
+            })
+            .catch(() => {
+                alert('Błąd wylogowania!');
+            })
+    }
+
     //Dane z firebase
     componentDidMount() {
         this.ref = fbase.syncState('bookstore/books', {
@@ -112,6 +127,7 @@ class AdminPanel extends Component {
                     <AddBookForm
                         book={this.state.book}
                         addNewBook={this.addNewBook}
+                        handleLogout={this.handleLogout}
                         handleChange={this.handleChange}
                     />
                 }
