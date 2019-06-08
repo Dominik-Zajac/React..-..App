@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Inventory from './Inventory';
 import Order from './Order';
+import Footer from './Footer';
 
 class App extends React.Component {
   constructor() {
@@ -29,20 +30,31 @@ class App extends React.Component {
 
   render() {
 
-    return (
-      <div className="app container">
-        <Header />
-        <div className='row'>
-          <Order
-            order={this.state.order}
-            removeFromOrder={this.removeFromOrder}
-          />
-          <Inventory
-            books={this.state.books}
-            addToOrder={this.addToOrder}
-          />
-        </div>
-      </div>
+    return ( <
+      div className = "app container" >
+      <
+      Header / >
+      <
+      div className = 'row' >
+      <
+      Order order = {
+        this.state.order
+      }
+      removeFromOrder = {
+        this.removeFromOrder
+      }
+      /> <
+      Inventory books = {
+        this.state.books
+      }
+      addToOrder = {
+        this.addToOrder
+      }
+      /> <
+      /div> <
+      Footer / >
+      <
+      /div>
     );
   }
 }
