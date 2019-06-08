@@ -21,7 +21,7 @@ class AdminPanel extends Component {
         }
     }
 
-    //Pobieranie wartości z inputów
+    //Pobieranie wartości z inputów "AddBookForm"
     handleChange = e => {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -55,7 +55,6 @@ class AdminPanel extends Component {
     resetForm() {
         this.setState({
             book: {
-
                 name: '',
                 author: '',
                 description: '',
@@ -64,19 +63,14 @@ class AdminPanel extends Component {
         })
     }
 
-    componentDidMount() {
-        this.ref = fbase.syncState('bookstore/books', {
-            context: this,
-            state: 'books'
-        })
-    }
-
+    //Pobieranie wartości z inputów "Login Panel"
     handleLoginChange = e => {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
 
+    //Uwierzytelnianie admina
     authenticate = e => {
         e.preventDefault();
         firebaseApp.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -89,6 +83,14 @@ class AdminPanel extends Component {
             .catch(() => {
                 alert('Blędy login/hasło!')
             })
+    }
+
+    //Dane z firebase
+    componentDidMount() {
+        this.ref = fbase.syncState('bookstore/books', {
+            context: this,
+            state: 'books'
+        })
     }
 
     componentWillUnmount() {
