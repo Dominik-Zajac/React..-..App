@@ -6,7 +6,11 @@ const AdminBookListing = props => {
     let list = <h4>No books on stock</h4>
 
     if (Array.isArray(props.books)) {
-        list = props.books.map((book, index) => <AdminBookView key={index} book={book} removeFromInventory={props.removeFromInventory} />)
+        list = props.books.map((book, index) => <AdminBookView
+            key={index}
+            book={book}
+            removeFromInventory={props.removeFromInventory}
+        />)
     }
     return (
         <>

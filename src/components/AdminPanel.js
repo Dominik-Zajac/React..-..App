@@ -79,6 +79,7 @@ class AdminPanel extends Component {
                 this.setState({
                     loggedIn: true
                 })
+                localStorage.setItem('loggedIn', true);
             })
 
             .catch(() => {
@@ -113,6 +114,11 @@ class AdminPanel extends Component {
 
     //Dane z firebase
     componentDidMount() {
+        if (localStorage.getItem('loggedIn')) {
+            this.setState({
+                loggedIn: localStorage.getItem('loggedIn')
+            })
+        }
         this.ref = fbase.syncState('bookstore/books', {
             context: this,
             state: 'books'
