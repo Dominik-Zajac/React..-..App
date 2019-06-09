@@ -23,13 +23,18 @@ class Inventory extends React.Component {
 
 
     render() {
-        const books = this.state.books.map((book, index) => (
-            <BookView
-                key={index}
-                book={book}
-                addToOrder={this.props.addToOrder}
-            />
-        ))
+        let books = <h4>No books on stock</h4>
+
+        if (Array.isArray(this.state.books)) {
+            books = this.state.books.map((book, index) => (
+                <BookView
+                    key={index}
+                    book={book}
+                    addToOrder={this.props.addToOrder}
+                />
+            ))
+        }
+
         return (
             <div className='inventory col-md-6'>
                 <h2>Bookstore inventory:</h2>
