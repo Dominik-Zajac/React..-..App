@@ -1,13 +1,14 @@
 import React from 'react';
+import AdminBookView from './AdminBookView';
 
 const AdminBookListing = props => {
-    let list = props.books.map((book, index) => <li key={index}>{book.name}</li>)
+    let list = props.books.map((book, index) => <AdminBookView key={index} book={book} removeFromInventory={props.removeFromInventory} />)
     return (
         <>
             <h2>Books list</h2>
-            <ul className='book-list'>
+            <div className='book-list'>
                 {list}
-            </ul>
+            </div>
         </>
     )
 }

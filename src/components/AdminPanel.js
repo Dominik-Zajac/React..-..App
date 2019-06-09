@@ -101,6 +101,16 @@ class AdminPanel extends Component {
             })
     }
 
+    //Usuwanie książki przez panel admina
+    removeFromInventory = title => {
+
+        let books = this.state.books.filter(book => title !== book.name);
+
+        this.setState({
+            books
+        })
+    }
+
     //Dane z firebase
     componentDidMount() {
         this.ref = fbase.syncState('bookstore/books', {
@@ -132,7 +142,10 @@ class AdminPanel extends Component {
                             handleLogout={this.handleLogout}
                             handleChange={this.handleChange}
                         />
-                        <AdminBookListing books={this.state.books} />
+                        <AdminBookListing
+                            books={this.state.books}
+                            removeFromInventory={this.removeFromInventory}
+                        />
                     </>
                 }
             </div>
