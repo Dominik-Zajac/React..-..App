@@ -131,7 +131,7 @@ class AdminPanel extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container-panel'>
                 {!this.state.loggedIn &&
                     <LoginPanel
                         email={this.state.email}

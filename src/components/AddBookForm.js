@@ -2,7 +2,8 @@ import React from 'react';
 
 const AddBookForm = props => {
     return (
-        <div className='adminPanel col-md-4'>
+        <div className='admin-panel col-md-4'>
+            <h2>Admin Panel</h2>
             <form onSubmit={props.addNewBook}>
                 <div className='form-group'>
                     <input
@@ -52,8 +53,9 @@ const AddBookForm = props => {
                     </label>
                 </div>
                 <button type='submit' className='btn btn-primary'>Add</button>
+                <button onClick={props.handleLogout} className='btn btn-primary'>Logout</button>
+
             </form>
-            <button onClick={props.handleLogout} className='btn btn-primary'>Logout</button>
         </div>
     )
 }
