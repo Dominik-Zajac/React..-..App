@@ -3,6 +3,7 @@ import React from 'react';
 const AddBookForm = props => {
     const { handleChange, handleLogout, addNewBook } = props;
     const { name, author, description } = props.book;
+
     return (
         <div className='admin-panel col-md-4'>
             <h2>Admin Panel</h2>

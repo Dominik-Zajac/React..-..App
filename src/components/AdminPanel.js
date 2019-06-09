@@ -104,7 +104,6 @@ class AdminPanel extends Component {
 
     //Usuwanie książki przez panel admina
     removeFromInventory = title => {
-
         let books = this.state.books.filter(book => title !== book.name);
 
         this.setState({
@@ -130,27 +129,37 @@ class AdminPanel extends Component {
     }
 
     render() {
+        const { email, password, book, books } = this.state;
+        const {
+            authenticate,
+            handleLoginChange,
+            removeFromInventory,
+            handleChange,
+            handleLogout,
+            addNewBook
+        } = this;
+
         return (
             <div className='container-panel'>
                 {!this.state.loggedIn &&
                     <LoginPanel
-                        email={this.state.email}
-                        password={this.state.password}
-                        authenticate={this.authenticate}
-                        handleLoginChange={this.handleLoginChange}
+                        email={email}
+                        password={password}
+                        authenticate={authenticate}
+                        handleLoginChange={handleLoginChange}
                     />
                 }
                 {this.state.loggedIn &&
                     <>
                         <AddBookForm
-                            book={this.state.book}
-                            addNewBook={this.addNewBook}
-                            handleLogout={this.handleLogout}
-                            handleChange={this.handleChange}
+                            book={book}
+                            addNewBook={addNewBook}
+                            handleLogout={handleLogout}
+                            handleChange={handleChange}
                         />
                         <AdminBookListing
-                            books={this.state.books}
-                            removeFromInventory={this.removeFromInventory}
+                            books={books}
+                            removeFromInventory={removeFromInventory}
                         />
                     </>
                 }
