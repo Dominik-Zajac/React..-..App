@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fbase, firebaseApp } from '../firebase';
 import LoginPanel from './LoginPanel';
 import AddBookForm from './AddBookForm';
+import AdminBookListing from './AdminBookListing';
 
 class AdminPanel extends Component {
     constructor() {
@@ -124,12 +125,15 @@ class AdminPanel extends Component {
                     />
                 }
                 {this.state.loggedIn &&
-                    <AddBookForm
-                        book={this.state.book}
-                        addNewBook={this.addNewBook}
-                        handleLogout={this.handleLogout}
-                        handleChange={this.handleChange}
-                    />
+                    <>
+                        <AddBookForm
+                            book={this.state.book}
+                            addNewBook={this.addNewBook}
+                            handleLogout={this.handleLogout}
+                            handleChange={this.handleChange}
+                        />
+                        <AdminBookListing books={this.state.books} />
+                    </>
                 }
             </div>
         )
