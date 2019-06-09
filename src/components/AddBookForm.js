@@ -1,17 +1,19 @@
 import React from 'react';
 
 const AddBookForm = props => {
+    const { handleChange, handleLogout, addNewBook } = props;
+    const { name, author, description } = props.book;
     return (
         <div className='admin-panel col-md-4'>
             <h2>Admin Panel</h2>
-            <form onSubmit={props.addNewBook}>
+            <form onSubmit={addNewBook}>
                 <div className='form-group'>
                     <input
                         id='name'
                         name='name'
                         type='text'
-                        value={props.book.name}
-                        onChange={props.handleChange}
+                        value={name}
+                        onChange={handleChange}
                         placeholder='Book name'
                         className='form-control'
                     />
@@ -21,8 +23,8 @@ const AddBookForm = props => {
                         id='author'
                         name='author'
                         type='text'
-                        value={props.book.author}
-                        onChange={props.handleChange}
+                        value={author}
+                        onChange={handleChange}
                         placeholder='Book author'
                         className='form-control'
                     />
@@ -31,29 +33,14 @@ const AddBookForm = props => {
                     <textarea
                         id='description'
                         name='description'
-                        value={props.book.description}
-                        onChange={props.handleChange}
+                        value={description}
+                        onChange={handleChange}
                         placeholder='Book description'
                         className='form-control'
                     />
                 </div>
-                <div className='form-group'>
-                    <input
-                        id='onStock'
-                        name='onStock'
-                        type='checkbox'
-                        checked={props.book.onStock}
-                        onChange={props.handleChange}
-                        className='form-check-input'
-                    />
-                    <label
-                        htmlFor='onStock'
-                        className='form-check-label'>
-                        On stock
-                    </label>
-                </div>
                 <button type='submit' className='btn btn-primary'>Add</button>
-                <button onClick={props.handleLogout} className='btn btn-primary'>Logout</button>
+                <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
 
             </form>
         </div>
