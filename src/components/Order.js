@@ -16,7 +16,6 @@ class Order extends React.Component {
                 {orderedBooks}
             </div>
         )
-
     }
 }
 

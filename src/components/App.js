@@ -30,34 +30,21 @@ class App extends React.Component {
 
   render() {
 
-    return ( <
-      div className = "app container" >
-      <
-      Header / >
-      <
-      div className = 'row' >
-      <
-      Order order = {
-        this.state.order
-      }
-      removeFromOrder = {
-        this.removeFromOrder
-      }
-      /> <
-      Inventory books = {
-        this.state.books
-      }
-      addToOrder = {
-        this.addToOrder
-      }
-      /> <
-      /div> <
-      Footer / >
-      <
-      /div>
+    return (
+      <div className='app container'>
+        <Header />
+        <div className='row'>
+          <Order order={this.state.order}
+            removeFromOrder={this.removeFromOrder}
+          />
+          <Inventory books={this.state.books}
+            addToOrder={this.addToOrder}
+          />
+        </div>
+        <Footer />
+      </div>
     );
   }
 }
-
 
 export default App;

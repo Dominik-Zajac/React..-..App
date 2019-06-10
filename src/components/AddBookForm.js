@@ -42,7 +42,6 @@ const AddBookForm = props => {
                 </div>
                 <button type='submit' className='btn btn-primary'>Add</button>
                 <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
-
             </form>
         </div>
     )

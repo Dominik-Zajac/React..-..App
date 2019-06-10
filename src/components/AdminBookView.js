@@ -7,7 +7,11 @@ const AdminBookView = props => {
                 <span>{props.book.name}</span>
             </div>
             <div className='col-md-4'>
-                <button className='btn btn-danger' onClick={() => props.removeFromInventory(props.book.name)}>Remove</button>
+                <button
+                    className='btn btn-danger'
+                    onClick={() => props.removeFromInventory(props.book.name)}>
+                    Remove
+                </button>
             </div>
         </div>
     )

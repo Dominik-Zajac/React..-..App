@@ -14,7 +14,6 @@ class Header extends React.Component {
     }
 
     handleClick = () => {
-        console.log('dziala')
         if (this.state.clicked) {
 
             this.setState({
